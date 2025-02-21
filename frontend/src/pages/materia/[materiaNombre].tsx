@@ -46,7 +46,7 @@ const MateriaPage = () => {
   
           const response = await fetch(`http://localhost:5000/api/materia/examenes/${materiaId}?instancia=${selectedInstancia}`);
           
-          if (!response.ok) throw new Error('No se encontraron exámenes para esta materia');
+          if (!response.ok) throw new Error('No se encontraron archivos para esta materia');
           
           const data = await response.json();
           setExamenes(data);
