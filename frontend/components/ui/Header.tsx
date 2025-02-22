@@ -1,5 +1,5 @@
 import React from "react";
-import LinkButton from "./Button"; 
+import LinkButton from "./OptionButton"; 
 
 const Header = () => {
     return (

@@ -69,7 +69,9 @@ def obtener_examenes(materia_id):
                     {
                         "id": archivo.id,
                         "filename": archivo.filename,
-                        "tipo": archivo.tipo
+                        "tipo": archivo.tipo,
+                        "descripcion" : archivo.descripcion,
+                        "archivo_url" : archivo.file_url
                     } for archivo in examen.archivos
                 ]
             }
@@ -85,7 +87,8 @@ def obtener_examenes(materia_id):
                 {
                     "id": archivo.id,
                     "filename": archivo.filename,
-                    "tipo": archivo.tipo
+                    "tipo": archivo.tipo,
+                    "archivo_url" : archivo.file_url
                 } for archivo in resumen.archivos
             ]
         }
@@ -93,14 +96,10 @@ def obtener_examenes(materia_id):
     ]
     return jsonify(resumenes_data)
 
-@main.route("/api/archivos/<int:archivo_id>", methods=["GET"])
+"""@main.route("/api/archivos/<int:archivo_id>", methods=["GET"])
 def obtener_archivo(archivo_id):
     archivo = Archivo.query.get(archivo_id)
     if archivo:
-        return Response(
-            archivo.data,
-            mimetype=f"application/{archivo.tipo}",
-            headers={"Content-Disposition": f"inline; filename={archivo.filename}"}
-        )
+        return Response()
     else:
-        return jsonify({"error": "Archivo no encontrado"}), 404
+        return jsonify({"error": "Archivo no encontrado"}), 404"""

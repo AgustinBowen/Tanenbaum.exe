@@ -60,7 +60,8 @@ class Archivo(db.Model):
     resumen_id = db.Column(db.Integer, db.ForeignKey("resumen.id"), nullable=True)  
     filename = db.Column(db.String(255), nullable=False)  
     tipo = db.Column(db.String(10), nullable=False)  
-    data = db.Column(db.LargeBinary, nullable=False)  
+    file_url = db.Column(db.String(255), nullable=False) 
+    descripcion = db.Column(db.Text, nullable=True)
 
     __table_args__ = (
         db.CheckConstraint(
@@ -75,5 +76,7 @@ class Archivo(db.Model):
             "filename": self.filename,
             "tipo": self.tipo,
             "examen_id": self.examen_id,
-            "resumen_id": self.resumen_id
+            "resumen_id": self.resumen_id,
+            "file_url": self.file_url,
+            "descripcion": self.descripcion
         }
