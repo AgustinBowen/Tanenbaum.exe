@@ -1,7 +1,7 @@
 # Tanenbaum.exe 👴
 
 ## Descripción 📄
-El objetivo es una pagina web la cual tenga una recopilacion de todos los parciales, finales y resumenes de la carrera Licenciatura en Sistemas de la UNPSJB de Trelew.
+Pagina web sencilla con el objetivo de recopilar todos los parciales, finales y resumenes de la carrera Licenciatura en Sistemas de la UNPSJB de Trelew.
 
 ## Instalación 👴💻 
 Para instalar y ejecutar el proyecto, sigue estos pasos:
