@@ -1,8 +1,9 @@
-from flask import Blueprint, jsonify, Response, request
+from flask import Blueprint, jsonify, Response, request, current_app
 from sqlalchemy import func
 from unidecode import unidecode
 from app.database import db
 from app.models import *
+from flask_mail import Message
 
 main = Blueprint("main", __name__)
 
@@ -95,3 +96,21 @@ def obtener_examenes(materia_id):
         for resumen in resumenes
     ]
     return jsonify(resumenes_data)
+
+@main.route("/enviarMail", methods=["POST"])
+def enviar_mail():
+    data = request.get_json()
+    if not data or "recipients" not in data or "subject" not in data or "body" not in data:
+        return jsonify({"error": "Faltan datos"}), 400
+
+    try:
+        msg = Message(
+            subject=data["subject"],
+            recipients=[data["recipients"]],
+            body=data["body"]
+        )
+        mail = current_app.extensions["mail"]
+        mail.send(msg)
+        return jsonify({"success": "Correo enviado correctamente"}), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
