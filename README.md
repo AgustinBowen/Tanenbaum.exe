@@ -33,9 +33,7 @@ Para instalar y ejecutar el proyecto, sigue estos pasos:
 
 ## 🔋 Stack
 ### Backend
-
 ![Flask](https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white)<br>
-
 ### Frontend
 ![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white)<br>
 ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white) <br>
