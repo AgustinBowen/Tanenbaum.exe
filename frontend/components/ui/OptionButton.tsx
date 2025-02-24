@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   href?: string; 
@@ -14,9 +15,9 @@ const OptionButton: React.FC<ButtonProps> = ({ href, isActive, children, ...prop
   const className = `${baseClass} ${isActive ? activeStyle : normalStyle}`;
 
   return href ? (
-    <a href={href} className={className}>
+    <Link href={href} className={className}>
       {children}
-    </a>
+    </Link>
   ) : (
     <button className={className} {...props}>
       {children}

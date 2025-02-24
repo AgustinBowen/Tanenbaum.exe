@@ -13,7 +13,7 @@ const BackgroundBlur = ({
 }: BackgroundBlurProps) => {
   return (
     <div
-      className={`h-[300px] w-[400px] rounded-full absolute bg-shadows blur-[220px] z-0 transition-all`}
+      className={`h-[300px] w-[400px] rounded-full absolute bg-shadows blur-[220px] z-0 transition`}
       style={{
         left,
         top,

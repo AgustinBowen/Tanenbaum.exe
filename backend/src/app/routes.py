@@ -95,11 +95,3 @@ def obtener_examenes(materia_id):
         for resumen in resumenes
     ]
     return jsonify(resumenes_data)
-
-"""@main.route("/api/archivos/<int:archivo_id>", methods=["GET"])
-def obtener_archivo(archivo_id):
-    archivo = Archivo.query.get(archivo_id)
-    if archivo:
-        return Response()
-    else:
-        return jsonify({"error": "Archivo no encontrado"}), 404"""
