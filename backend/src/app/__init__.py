@@ -24,7 +24,6 @@ def create_app():
 
     CORS(app)
     db.init_app(app)
-    print("MAIL_SERVER:", app.config["MAIL_SERVER"])
 
     mail.init_app(app)
     migrate = Migrate(app, db)

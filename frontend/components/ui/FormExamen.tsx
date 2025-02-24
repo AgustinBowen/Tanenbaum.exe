@@ -31,8 +31,9 @@ import {
 import { cn } from "@/lib/utils";
 
 const formSchema = z.object({
+  email: z.string().email("El email es requerido"),
   description: z.string().min(1, "La descripción es requerida"),
-  fecha: z.string().min(1, "La fecha es requerida"),
+  fecha: z.date().refine((date) => !isNaN(date.getTime()), "La fecha es requerida"),
   fileType: z.enum(["pdf", "imagen"]),
   instance: z.enum(["final", "parcial", "resumen"]),
   parcialNumber: z.enum(["1", "2", "3"]).optional(),
@@ -56,8 +57,22 @@ export default function ExamUploadForm() {
 
   const watchInstance = form.watch("instance");
 
-  const onSubmit = (data: FormValues) => {
-    console.log(data);
+  const onSubmit = async(data: FormValues)  => {
+    const formattedData = {
+      ...data,
+      fecha: data.fecha.toISOString().split("T")[0], 
+    };
+
+    const response = await fetch('http://localhost:5000/enviarMail', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formattedData),
+    });
+  
+    const result = await response.json();
+    console.log(result)
   };
 
   return (
@@ -66,6 +81,26 @@ export default function ExamUploadForm() {
         onSubmit={form.handleSubmit(onSubmit)}
         className="mb-10 z-50 opacity-85 space-y-5 p-8 rounded-md bg-black"
       >
+        <FormField
+          control={form.control}
+          name="email"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Ingrese su email</FormLabel>
+              <FormControl>
+                <Input
+                  placeholder="Email"
+                  className="border-borders"
+                  {...field}
+                /></FormControl>
+              <FormDescription>
+                Breve descripción del contenido del archivo.
+              </FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
         <FormField
           control={form.control}
           name="description"
@@ -104,7 +139,7 @@ export default function ExamUploadForm() {
                       )}
                     >
                       {field.value ? (
-                        format(field.value, "PPP")
+                        <span>{new Date(field.value).toLocaleDateString()}</span>
                       ) : (
                         <span>Fecha</span>
                       )}
@@ -115,7 +150,7 @@ export default function ExamUploadForm() {
                 <PopoverContent className="w-auto p-0" align="start">
                   <Calendar
                     mode="single"
-                    selected={field.value}
+                    selected={field.value ? new Date(field.value) : undefined}
                     onSelect={field.onChange}
                     disabled={(date) =>
                       date > new Date() || date < new Date("1900-01-01")
@@ -256,7 +291,7 @@ export default function ExamUploadForm() {
         />
 
         <Button type="submit" className="bg-shadows hover:bg-shadows/70">
-          Subir archivo
+          Enviar examen
         </Button>
       </form>
     </Form>

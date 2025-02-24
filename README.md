@@ -1,4 +1,4 @@
-# Tanenbaum.exe 👴
+# TanenbaumGPT 👴
 
 ## Descripción 📄
 Pagina web sencilla con el objetivo de recopilar y ordenar todos los parciales, finales y resumenes de la carrera Licenciatura en Sistemas de la UNPSJB de Trelew.

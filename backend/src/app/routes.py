@@ -100,8 +100,7 @@ def obtener_examenes(materia_id):
 @main.route("/enviarMail", methods=["POST"])
 def enviar_mail():
     data = request.get_json()
-    if not data or "recipients" not in data or "subject" not in data or "body" not in data:
-        return jsonify({"error": "Faltan datos"}), 400
+    print(data)
 
     try:
         msg = Message(
