@@ -7,7 +7,7 @@ Pagina web sencilla con el objetivo de recopilar y ordenar todos los parciales, 
 [![busqueda.png](https://i.postimg.cc/zBWbFJWT/busqueda.png)](https://postimg.cc/LY98HFxs)
 [![examenes2.png](https://i.postimg.cc/52crsgZv/examenes2.png)](https://postimg.cc/QHbStQNx)
 [![carrousel.png](https://i.postimg.cc/Bv3nfx1P/carrousel.png)](https://postimg.cc/hXCB9QsK)
-[![enviarexamen.png](https://i.postimg.cc/yY6GtWd6/enviarexamen.png)](https://postimg.cc/9zS1qmZs)
+[enviarexamen.png](https://postimg.cc/9zS1qmZs)
 
 ## Instalación 👴💻 
 Para instalar y ejecutar el proyecto, sigue estos pasos:
