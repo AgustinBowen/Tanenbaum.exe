@@ -39,10 +39,5 @@ Para instalar y ejecutar el proyecto, sigue estos pasos:
 ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white) <br>
 ![ChatGPT](https://img.shields.io/badge/chatGPT-74aa9c?style=for-the-badge&logo=openai&logoColor=white) <br>
 
-### En la seccion de ejecutar comandos del admin, tirar este comando
-CREATE EXTENSION IF NOT EXISTS unaccent;
 
-### Si hay problemas con los botones, cambiar el nombre del archivo dentro de components/ui llamado Button.tsx a button.tsx (se cambiamos la mayuscula xd)
 
-### Agregar archivo .env.local dentro de frontend, y agregar esto dentro (la clave es privada xd)
-NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=<clave privada del archivo a visualizar>
